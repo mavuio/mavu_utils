@@ -1,7 +1,7 @@
 defmodule MavuUtils.MixProject do
   use Mix.Project
 
-  @version "0.1.4"
+  @version "0.1.5"
   def project do
     [
       app: :mavu_utils,
@@ -12,7 +12,7 @@ defmodule MavuUtils.MixProject do
       description: description(),
       package: package(),
       deps: deps(),
-      name: "Postgrex",
+      name: "MavuUtils",
       source_url: "https://github.com/mavuio/mavu_utils"
     ]
   end
@@ -32,14 +32,14 @@ defmodule MavuUtils.MixProject do
   defp deps do
     [
       {:decimal, ">= 1.0.0"},
-      {:blankable, "~> 1.0"}
+      {:blankable, "~> 1.0"},
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
   end
 
   defp package() do
     [
-      files: ~w(lib priv .formatter.exs mix.exs README* readme* LICENSE*
-                license* CHANGELOG* changelog* src),
+      files: ~w(lib .formatter.exs mix.exs README*),
       licenses: ["Apache-2.0"],
       links: %{"GitHub" => "https://github.com/mavuio/mavu_utils"}
     ]

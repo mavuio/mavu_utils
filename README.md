@@ -1,6 +1,6 @@
 # MavuUtils
 
-Simple Useful Utility functions for my other upcoming packages under mavuio/\*
+An opinionated set of utility functions used by other (upcoming) packages under mavuio/\*
 
 ## Installation
 
