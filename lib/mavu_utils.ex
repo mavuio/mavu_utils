@@ -1,6 +1,6 @@
 defmodule MavuUtils do
   @moduledoc """
-    utility helpers by Manfred Wuits
+    utility helpers by mavuio
   """
 
   defmacro pipe_when(left, condition, fun) do

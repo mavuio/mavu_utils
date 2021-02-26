@@ -1,16 +1,16 @@
 # MavuUtils
 
-**TODO: Add description**
+Simple Useful Utility functions for my other upcoming packages under mavuio/\*
 
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `mavuUtils` to your list of dependencies in `mix.exs`:
+by adding `mavu_utils` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:mavuUtils, "~> 0.1.0"}
+    {:mavu_utils, "~> 0.1.0"}
   ]
 end
 ```
