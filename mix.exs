@@ -1,7 +1,7 @@
 defmodule MavuUtils.MixProject do
   use Mix.Project
 
-  @version "0.1.5"
+  @version "0.1.6"
   def project do
     [
       app: :mavu_utils,
@@ -24,17 +24,18 @@ defmodule MavuUtils.MixProject do
     ]
   end
 
-  defp description() do
-    "Simple Useful Utility functions for my other upcoming packages under mavuio/\*"
-  end
-
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:decimal, ">= 1.0.0"},
+      {:decimal, ">= 0.0.0"},
+      {:ecto, ">= 0.0.0"},
       {:blankable, "~> 1.0"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
+  end
+
+  defp description() do
+    "Simple Useful Utility functions for my other upcoming packages under mavuio/\*"
   end
 
   defp package() do
