@@ -168,4 +168,8 @@ defmodule MavuUtils do
 
     data
   end
+
+  def die(data, msg \\ "") do
+    MavuUtils.Error.die(data, label: msg)
+  end
 end
