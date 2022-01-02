@@ -5,6 +5,8 @@ defmodule MavuUtils do
 
   require Logger
 
+  alias MavuUtils.Blankable
+
   @doc """
   macro to only apply a function within a pipe if a condition equals to true.
 
