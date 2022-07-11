@@ -29,7 +29,7 @@ defmodule MavuUtils.MixProject do
     [
       {:decimal, ">= 0.0.0"},
       {:ecto, ">= 0.0.0"},
-      {:phoenix, ">= 1.5.0"},
+      {:phoenix_live_view, ">= 0.16.0"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
   end
