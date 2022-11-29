@@ -174,4 +174,36 @@ defmodule MavuUtils do
   def die(data, msg \\ "") do
     MavuUtils.Error.die(data, label: msg)
   end
+
+  @doc """
+    updates url (given as string) with new parameters (given as keyword-list)
+    parameters which values are nil will be removed from the query
+  """
+  def update_params_in_url(url, params) when is_list(params) and is_binary(url) do
+    url
+    |> URI.parse()
+    |> Map.update(:query, "", &update_params_in_query(&1, params))
+    |> URI.to_string()
+  end
+
+  def update_params_in_url(url, _), do: url
+
+  @doc """
+    updates query (given as string) with new parameters (given as keyword-list)
+    parameters which values are nil will be removed from the query
+  """
+  def update_params_in_query(query, params)
+      when is_list(params) and (is_binary(query) or is_nil(query)) do
+    params
+    |> Enum.map(fn {k, v} -> {"#{k}", v} end)
+    |> Enum.into(URI.decode_query(query || ""))
+    |> Map.to_list()
+    |> Enum.filter(fn
+      {_, nil} -> false
+      {_, _} -> true
+    end)
+    |> URI.encode_query(:rfc3986)
+  end
+
+  def update_params_in_query(query, _), do: query
 end
