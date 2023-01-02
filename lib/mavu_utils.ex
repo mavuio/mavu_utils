@@ -188,6 +188,16 @@ defmodule MavuUtils do
 
   def update_params_in_url(url, _), do: url
 
+  def update_params_in_path(url, params), do: update_params_in_url(url, params) |> strip_host()
+
+  def strip_host(url) do
+    url
+    |> URI.parse()
+    |> Map.take(~w(path query)a)
+    |> Map.values()
+    |> Enum.join("?")
+  end
+
   @doc """
     updates query (given as string) with new parameters (given as keyword-list)
     parameters which values are nil will be removed from the query
