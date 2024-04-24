@@ -70,6 +70,47 @@ defmodule MavuUtils do
 
   @doc """
 
+  applies a function to a pipe  based on a condition
+
+  ##Example:
+
+    get_name()
+    |> do_if(opts[:uppercase], &String.upcase/1)
+    |> Jason.encode!()
+  """
+  def do_if(value, true, _), do: value
+  def do_if(value, _, fun), do: fun.(value)
+
+  @doc """
+
+  applies a function to a pipe  based on a condition tested with present?/1
+
+  ##Example:
+
+    get_record()
+    |> if_true(opts[:key], &Map.get(&1, opts[:key]))
+    |> Jason.encode!()
+  """
+  def do_if_present(value, condition, fun) do
+    do_if(value, present?(condition), fun)
+  end
+
+  @doc """
+
+  applies a function to a pipe  based on a condition tested with true?/1
+
+  ##Example:
+
+    get_record()
+    |> if_true(opts[:uppercase], &String.upcase/1)
+    |> Jason.encode!()
+  """
+  def do_if_true(value, condition, fun) do
+    do_if(value, true?(condition), fun)
+  end
+
+  @doc """
+
   tries to convert any value to integer
 
   returns integer on success, nil on failure
