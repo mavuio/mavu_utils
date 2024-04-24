@@ -78,8 +78,8 @@ defmodule MavuUtils do
     |> do_if(opts[:uppercase], &String.upcase/1)
     |> Jason.encode!()
   """
-  def do_if(value, true, _), do: value
-  def do_if(value, _, fun), do: fun.(value)
+  def do_if(value, true, fun), do: fun.(value)
+  def do_if(value, _, _), do: value
 
   @doc """
 
