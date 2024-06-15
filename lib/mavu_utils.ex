@@ -257,4 +257,21 @@ defmodule MavuUtils do
   end
 
   def update_params_in_query(query, _), do: query
+
+  def nil_on_error(val, opts \\ []) do
+    case val do
+      {:ok, result} -> result
+      {:error, _} -> nil
+    end
+  end
+
+  def raise_on_error(val, opts \\ []) do
+    case val do
+      {:ok, result} ->
+        result
+
+      {:error, error_info} ->
+        raise "error on from_map: #{inspect(error_info)}"
+    end
+  end
 end
