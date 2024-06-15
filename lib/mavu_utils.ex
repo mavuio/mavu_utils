@@ -258,14 +258,14 @@ defmodule MavuUtils do
 
   def update_params_in_query(query, _), do: query
 
-  def nil_on_error(val, opts \\ []) do
+  def on_error_raise(val, opts \\ []) do
     case val do
       {:ok, result} -> result
       {:error, _} -> nil
     end
   end
 
-  def raise_on_error(val, opts \\ []) do
+  def on_error_nil(val, opts \\ []) do
     case val do
       {:ok, result} ->
         result
